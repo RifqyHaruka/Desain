@@ -4,14 +4,14 @@ import 'package:future_jobs/pages/detail_page.dart';
 import '../theme.dart';
 
 class JobTile extends StatelessWidget {
-  final String imageUrl;
-  final String jobTitle;
+  final String name;
   final String companyName;
+  final String companyLogo;
 
   JobTile({
-    this.imageUrl,
-    this.jobTitle,
+    this.name,
     this.companyName,
+    this.companyLogo,
   });
 
   @override
@@ -21,7 +21,7 @@ class JobTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Detailpage(),
+            builder: (context) => DetailPage(),
           ),
         );
       },
@@ -29,7 +29,7 @@ class JobTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            imageUrl,
+            companyLogo,
             width: 44,
           ),
           SizedBox(
@@ -40,7 +40,7 @@ class JobTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  jobTitle,
+                  name,
                   style: blackTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
