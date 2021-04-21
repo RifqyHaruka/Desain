@@ -263,7 +263,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: TextButton(
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
-                context, 'newRouteName', (route) => false);
+                context, '/home', (route) => false);
           },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,

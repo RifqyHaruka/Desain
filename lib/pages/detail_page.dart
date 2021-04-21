@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  bool isApplied = false;
+
   @override
   Widget build(BuildContext context) {
     Widget header() {
@@ -12,6 +19,25 @@ class DetailPage extends StatelessWidget {
         ),
         child: Column(
           children: [
+            isApplied
+                ? Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.only(bottom: 30),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(48),
+                      color: Color(0xffECEDF1),
+                    ),
+                    child: Text(
+                      'You have applied this job and the\nrecruiter will contact you',
+                      textAlign: TextAlign.center,
+                      style: greyTextStyle.copyWith(),
+                    ),
+                  )
+                : Container(),
             Image.asset(
               'assets/icon_google.png',
               width: 60,
@@ -166,7 +192,11 @@ class DetailPage extends StatelessWidget {
             height: 45,
             width: 200,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  isApplied = true;
+                });
+              },
               style: TextButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(
@@ -175,6 +205,38 @@ class DetailPage extends StatelessWidget {
               ),
               child: Text(
                 'Apply for Job',
+                style: whiteTextStyle.copyWith(
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget cancelButton() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 50),
+            height: 45,
+            width: 200,
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  isApplied = false;
+                });
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: redColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(66),
+                ),
+              ),
+              child: Text(
+                'Cancel Apply',
                 style: whiteTextStyle.copyWith(
                   fontWeight: medium,
                 ),
@@ -214,7 +276,7 @@ class DetailPage extends StatelessWidget {
             aboutJob(),
             qualifications(),
             responsibilities(),
-            applyButton(),
+            isApplied ? cancelButton() : applyButton(),
             messageButton(),
           ],
         ),
