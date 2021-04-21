@@ -30,8 +30,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   google_fonts: ^2.0.0
   email_validator: ^2.0.1
-  # android_notification_listener2: ^2.0.1
-  notifications: ^1.1.0
+  http: ^0.13.1
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
