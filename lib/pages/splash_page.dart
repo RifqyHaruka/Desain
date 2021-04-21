@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:future_jobs/pages/onboarding_page.dart';
 import 'package:future_jobs/theme.dart';
 
 class SplashPage extends StatefulWidget {
