@@ -22,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Sign In',
+              'Sign Up',
               style: greyTextStyle.copyWith(
                 fontSize: 16,
               ),
